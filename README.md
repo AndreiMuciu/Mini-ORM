@@ -41,7 +41,8 @@ class Book(Model):
     author: Author
     genre: str
 ```
-## Project Structure
+```bash
+# Project Structure
 .
 ├── main.py
 ├── models/
@@ -52,3 +53,26 @@ class Book(Model):
 └── orm/
     ├── entityManager.py
     └── schemaGenerator.py
+```
+## Example Usage
+```python
+conn = sqlite3.connect("literatura.db")
+
+# Generate schema
+gen = SchemaGenerator([Person, Author, Book], conn)
+gen.generate()
+
+# Save entities
+em = EntityManager(conn)
+
+a = Author()
+a.name = "George Coșbuc"
+a.age = 50
+a.writingStyle = "Romantic"
+em.save(a)
+
+b = Book()
+b.title = "Luceafărul"
+b.author = a
+b.genre = "Poezie"
+em.save(b)
