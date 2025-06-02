@@ -41,19 +41,6 @@ class Book(Model):
     author: Author
     genre: str
 ```
-```bash
-# Project Structure
-.
-├── main.py
-├── models/
-│   ├── author.py
-│   ├── base.py
-│   ├── book.py
-│   └── person.py
-└── orm/
-    ├── entityManager.py
-    └── schemaGenerator.py
-```
 ## Example Usage
 ```python
 conn = sqlite3.connect("literatura.db")
@@ -76,3 +63,16 @@ b.title = "Luceafărul"
 b.author = a
 b.genre = "Poezie"
 em.save(b)
+```
+## Project Structure
+```bash
+.
+├── main.py
+├── models/
+│   ├── author.py
+│   ├── base.py
+│   ├── book.py
+│   └── person.py
+└── orm/
+    ├── entityManager.py
+    └── schemaGenerator.py
